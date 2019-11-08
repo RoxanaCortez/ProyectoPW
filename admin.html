@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Historial de visitas</title>
     <link rel="stylesheet" href="css/admin-style.css">
-    <script type="text/javascript" src="js/admin.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Montez&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/07bd293ac9.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
@@ -44,162 +43,61 @@
             </div>
         </div>
         <div class="search-box">
-           <!-- <div class="type-doc">
-                <select name="tipo">
-                    <option value="Auto">DUI</option>
-                    <option value="Moto">Cedula</option>
-                </select>
-            </div>-->
             <form class="search" action="#">
                 <input type="text" placeholder="Buscar.." name="search">
-                <button type="submit"><i class="fa fa-search"></i></button>
+                <button type="button" class="btn" ><i class="fa fa-search"></i></button>
             </form>
         </div>
         <div class="table-container">
-            <table>
-                <tr>
-                    <th>Nombre</th>
-                    <th>DUI</th>
-                    <th>Placa</th>
-                    <th>Tipo</th>
-                    <th>Fecha</th>
-                    <th>Hora entrada</th>
-                    <th>Hora salida</th>
-                    <th class="sticky">Acción</th>
-                </tr>
-                <tr>
-                    <td>Carlos Ponce</td>
-                    <td>01246739-0</td>
-                    <td>M291 341</td>
-                    <td>Motocicleta</td>
-                    <td>12/11/2019</td>
-                    <td>08:23:15</td>
-                    <td>13:45:56</td>
-                    <td class="sticky">
-                        <button class="btn edit"><i class="fa fa-edit"></i></button>
-                        <button class="btn delete"><i class="fa fa-trash"></i></button>
-                        <button class="btn-out">Sale</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Roxana Díaz</td>
-                    <td>01246739-0</td>
-                    <td>P291 341</td>
-                    <td>Automovil</td>
-                    <td>12/11/2019</td>
-                    <td>08:23:15</td>
-                    <td>13:45:56</td>
-                    <td class="sticky">
-                        <button class="btn edit"><i class="fa fa-edit"></i></button>
-                        <button class="btn delete"><i class="fa fa-trash"></i></button>
-                        <button class="btn-out">Sale</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Nicolas Mora</td>
-                    <td>01246739-0</td>
-                    <td>P291 341</td>
-                    <td>Automovil</td>
-                    <td>12/11/2019</td>
-                    <td>08:23:15</td>
-                    <td>13:45:56</td>
-                    <td class="sticky">
-                        <button class="btn edit"><i class="fa fa-edit"></i></button>
-                        <button class="btn delete"><i class="fa fa-trash"></i></button>
-                        <button class="btn-out">Sale</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Beatríz Pinzon</td>
-                    <td>01246739-0</td>
-                    <td>M291 341</td>
-                    <td>Motocicleta</td>
-                    <td>12/11/2019</td>
-                    <td>08:23:15</td>
-                    <td>13:45:56</td>
-                    <td class="sticky">
-                        <button class="btn edit"><i class="fa fa-edit"></i></button>
-                        <button class="btn delete"><i class="fa fa-trash"></i></button>
-                        <button class="btn-out">Sale</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Daniel Valencia</td>
-                    <td>01246739-0</td>
-                    <td>P291 341</td>
-                    <td>Automovil</td>
-                    <td>12/11/2019</td>
-                    <td>08:23:15</td>
-                    <td>13:45:56</td>
-                    <td class="sticky">
-                        <button class="btn edit"><i class="fa fa-edit"></i></button>
-                        <button class="btn delete"><i class="fa fa-trash"></i></button>
-                        <button class="btn-out">Sale</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Marcela Valencia</td>
-                    <td>01246739-0</td>
-                    <td>P291 341</td>
-                    <td>Automovil</td>
-                    <td>12/11/2019</td>
-                    <td>08:23:15</td>
-                    <td>13:45:56</td>
-                    <td class="sticky">
-                        <button class="btn edit"><i class="fa fa-edit"></i></button>
-                        <button class="btn delete"><i class="fa fa-trash"></i></button>
-                        <button class="btn-out">Sale</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Armando Mendoza</td>
-                    <td>01246739-0</td>
-                    <td>P291 341</td>
-                    <td>Automovil</td>
-                    <td>12/11/2019</td>
-                    <td>08:23:15</td>
-                    <td>13:45:56</td>
-                    <td class="sticky">
-                        <button class="btn edit"><i class="fa fa-edit"></i></button>
-                        <button class="btn delete"><i class="fa fa-trash"></i></button>
-                        <button class="btn-out">Sale</button>
-                    </td>
-                </tr>
+            <table id="lista">
+               <thead>
+                   <tr>
+                       <th>Nombre</th>
+                       <th>Documento</th>
+                       <th>Tipo</th>
+                       <th>Placa</th>
+                       <th>Descripcion</th>
+                       <th>Fecha/Hora entrada</th>
+                       <th class="sticky">Acción</th>
+                   </tr>
+               </thead>
+               <tbody id="tbody_id">
+               </tbody>
             </table>
         </div>
     </section>
     <div id="modal_id" class="modal">
-        <form class="modal-box modal-anim" action="#" method="post">
+        <form class="modal-box modal-anim" >
             <div class="modal-content">
                 <div class="pea-container" id="pea_info">
                     <label for="name"><b>Nombre</b></label>
-                    <input class="input-form" type="text" placeholder="Nombre" required>
+                    <input class="input-form" type="text" placeholder="Nombre" id="name" name="name" >
                     <label for="document"><b>Documento</b></label>
-                    <input class="input-form" type="text" placeholder="Número de documento" required>
+                    <input class="input-form" type="text" placeholder="Número de documento" id="doc" name="doc">
                 </div>
                 <button type="button" class="parking-btn" onclick='showHide("parking_info")'>Parqueo<span class="fas fa-angle-down"></span></button>
                 <div class="parking-container" id="parking_info">
                    <div class="information">
                         <div class="type-box">
                             <label for="type"><b>Tipo</b></label>
-                            <select name="tipo">
+                            <select name="type" id="type">
                                 <option value="Auto">Automovil</option>
                                 <option value="Moto">Motocicleta</option>
                             </select>
                         </div>
                         <div class="placa-box">
                             <label for="placa"><b>Placa</b></label>
-                            <input class="input-form" type="text" placeholder="Número de placa" required>
+                            <input class="input-form" type="text" placeholder="Número de placa" id="placa" name="placa" required>
                         </div>
                     </div>
                     <label for="description"><b>Descripción</b></label>
-                    <textarea class="description"></textarea>
+                    <textarea class="description" id="description" name="description"></textarea>
                 </div>
             </div>
             <div class="modal-btns-box">
                 <button type="button" class="cancel-btn" onclick="document.getElementById('modal_id').style.display='none'">Cancelar</button>
-                <button class="enter-btn" type="submit">Entra</button>
-                <button class="save-btn" type="submit">Guardar</button>
+                <button class="enter-btn" id="enter_btn" type="button">Entra</button>
+                <button class="save-btn" id="save_btn" type="submit">Guardar</button>
                 
             </div>
         </form>
@@ -207,5 +105,6 @@
     <footer>
 		
     </footer>
+        <script src="js/admin.js"></script>
 </body>
 </html>
