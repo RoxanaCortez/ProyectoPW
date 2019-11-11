@@ -1,5 +1,17 @@
+//Función para mostrar u ocultar un elemento
 var clic = 1;
+function showHide(id) {
+    if (clic == 1) {
+        document.getElementById(id).style.display = 'block';
+        clic = clic + 1;
+    } else {
+        document.getElementById(id).style.display = 'none';
+        clic = 1;
+    }
+}
 
+
+//Guardar
 let name_field = document.querySelector("#name")
 let doc_field = document.querySelector("#doc")
 let type_dropdown = document.querySelector("#type")
@@ -8,8 +20,7 @@ let desc_field = document.querySelector("#description")
 let submit_btn = document.querySelector("#enter_btn")
 let table_body = document.querySelector("#tbody_id")
 
-
-let addVisitor = (name, documento, type, placa, description) => {
+let addVisitor = (name, documento, type, placa, description, x) => {
     let new_row = document.createElement("tr")
     let datetime = new Date()
     new_row.className = "table_active"
@@ -20,19 +31,9 @@ let addVisitor = (name, documento, type, placa, description) => {
         <td>${placa}</td>
         <td>${description}</td>
         <td>${datetime.toLocaleString()}</td>
-        <td class="sticky">
-            <button type="button" id="btn" style="color:#23426B" class="btn delete"><i class="fa fa-trash"></i></button>
-            
-        </td> `
-   
+        `
     table_body.appendChild(new_row)
-    
-    btn_drop.addEventListener("click", (event) => {
-    row = element.parentElement.parentElement;
-    table_body.removeChild(row)                    
-    })
 }
-
 submit_btn.addEventListener("click", () => {
     let name = name_field.value
     let documento = doc_field.value
@@ -46,19 +47,25 @@ submit_btn.addEventListener("click", () => {
     
 })
 
-// Funcionamiento ocultar elementos en diferentes estados
-function showHide(id) {
-    if (clic == 1) {
-        document.getElementById(id).style.display = 'block';
-        clic = clic + 1;
-    } else {
-        document.getElementById(id).style.display = 'none';
-        clic = 1;
-    }
-}
 
-function showEditModal(){
-    document.getElementById('modal_id').style.display='block';
-    document.getElementById('enter_btn').style.display='none';
-    document.getElementById('save_btn').style.display='block';  
-}
+/*//Función Buscar
+function search() {
+  var input, cell, fltr, table, tr, td, i, j;
+  input = document.getElementById("search_input");
+  fltr = input.value.toUpperCase();
+  table = document.getElementById("table_id");
+  tr = table.getElementsByTagName("tr");
+  for (i = 1; i < tr.length; i++) {
+    tr[i].style.display = "none";  // Oculta inicalmente la fila
+    td = tr[i].getElementsByTagName("td");
+    for (var j = 0; j < td.length; j++) {
+      cell = tr[i].getElementsByTagName("td")[j];
+      if (cell) {
+        if (cell.innerHTML.toUpperCase().indexOf(fltr) > -1) {
+          tr[i].style.display = "";
+          break;
+        } 
+      }
+    }
+  }
+}*/
