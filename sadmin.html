@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Historial de visitas</title>
+    <link rel="stylesheet" href="css/sadmin-style.css">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Montez&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/07bd293ac9.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div class="title-box">
+            <img src="img/uca_white.png" alt="logo" class="logo">
+            <h1>Registro de usuarios y administradores</h1>
+        </div>
+        <div class="sesion-box">
+            <div class="sesion">
+                <h3 class="hi">Bienvenido: </h3>
+                <p class="username" id="username">Usuario</p>
+            </div>
+            <div class="logout">
+                <a href="login.html">Cerrar sesión</a>
+            </div>
+        </div>
+        <div class="sesion-btn">
+            <button type="button" class="fas fa-user" onclick='showHide("sesion_list")'></button>
+            <div class="sesion-list" id="sesion_list">
+                <a href="login.html">Cerrar sesión</a>
+            </div>
+        </div>
+    </header>
+    <section class="history-container">
+        <div class="table-header">
+            <div class="title-container">
+                <p>Lista de <strong>usuarios y administradores</strong></p>
+            </div>
+            <div class="add-btn-box">
+                <button class="add-btn" onclick="document.getElementById('modal_id').style.display='block'">Agregar</button>
+            </div>
+        </div>
+        <div class="search-box">
+            <!-- <div class="type-doc">
+                <select name="tipo">
+                    <option value="Auto">DUI</option>
+                    <option value="Moto">Cedula</option>
+                </select>
+            </div>-->
+            <form class="search">
+                <input type="text" id="search_input" onkeyup="search()" class="fas" placeholder="Buscar....">
+                <!--<button type="button" class="btn" ><i class="fa fa-search"></i></button>-->
+            </form>
+        </div>
+        <div class="table-container">
+            <table id="table_id" class="table">
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Tipo</th>
+                        <th>Usuario</th>
+                        <th>Contraseña</th>
+                        <th>Nombre</th>
+                        <th>DUI</th>
+                        <th>Teléfono</th>
+                        <th>Correo</th>
+                        <th class="sticky">Acción</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody_id">
+                </tbody>
+            </table>
+        </div>
+    </section>
+    <div id="modal_id" class="modal">
+        <form class="modal-box modal-anim">
+            <div class="modal-content">
+                <div class="type-cred-box">
+                    <div class="user-cred-box">
+                        <label for="username"><b>Usuario</b></label>
+                        <input class="input-form" type="text" placeholder="Usuario" id="user_name" name="username">
+                        <label for="password"><b>Contraseña</b></label>
+                        <input class="input-form" type="password" placeholder="Contraseña" id="pwd" name="pwd">
+                        <label for="cpassword"><b>Confirmar contraseña</b></label>
+                        <input class="input-form" type="password" placeholder="Contraseña" id="cpwd" name="cpwd">
+                    </div>
+                    <div class="user-type-box">
+                        <div class="u-type">
+                            <label for="user-type"><b>Tipo de usuario</b></label>
+                            <select name="type" id="type">
+                                <option value="Auto">Usuario</option>
+                                <option value="Moto">Administrador</option>
+                            </select>
+                            <!-- <label for="user-type"><b>Tipo de usuario</b></label>
+                    <label class="radio-container">Usuario
+                       <input type="radio" checked="checked" name="radio">
+                       <span class="checkmark"></span>
+                   </label>
+                   <label class="radio-container">Adiministrador
+                       <input type="radio" name="radio">
+                       <span class="checkmark"></span>
+                   </label>-->
+                        </div>
+                        <div class="user-code-box">
+                            <label for="user-type-code"><b>Código de usuario</b></label>
+                            <input class="input-form" type="text" placeholder="Código" id="user_code" name="usercode">
+                        </div>
+                    </div>
+                </div>
+                <div class="pea-container" id="pea_info">
+                    <label for="name"><b>Nombre</b></label>
+                    <input class="input-form" type="text" placeholder="Nombre y apellidos" id="name" name="name">
+                    <label for="dui"><b>DUI</b></label>
+                    <input class="input-form" type="text" placeholder="Número de DUI" id="dui" name="doc">
+                    <div class="tel-email-box">
+                        <div class="tel-box">
+                            <label for="tel"><b>Teléfono</b></label>
+                            <input class="input-form" type="text" placeholder="Numero de teléfono" id="tel" name="tel">
+                        </div>
+                        <div class="email-box">
+                            <label for="email"><b>Correo</b></label>
+                            <input class="input-form" type="text" placeholder="Correo electrónico" id="email" name="email">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-btns-box">
+                <button type="button" class="cancel-btn" onclick="document.getElementById('modal_id').style.display='none'">Cancelar</button>
+                <button class="enter-btn" id="enter_btn" type="button">Registrar</button>
+                <button class="save-btn" id="save_btn" type="submit">Guardar</button>
+
+            </div>
+        </form>
+    </div>
+    <footer>
+
+    </footer>
+    <script src="js/sadmin.js"></script>
+</body>
+
+</html>

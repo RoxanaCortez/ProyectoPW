@@ -8,24 +8,38 @@ let desc_field = document.querySelector("#description")
 let submit_btn = document.querySelector("#enter_btn")
 let table_body = document.querySelector("#tbody_id")
 
-
-let addVisitor = (name, documento, type, placa, description) => {
-    let new_row = document.createElement("tr")
-    let datetime = new Date()
+function fetchData(){
+    fetch("ruta")
+    .then()
+    .then((data)=>{
+        data.forEach(element => {
+            let new_row = document.createElement("tr")
     new_row.className = "table_active"
     new_row.innerHTML =
-        `<td scope='row'>${name}</td>
+        `<td scope='row'>${element.nombre}</td>
          <td>${documento}</td>
         <td>${type}</td>
         <td>${placa}</td>
         <td>${description}</td>
         <td>${datetime.toLocaleString()}</td>
         <td class="sticky">
-            <button type="button" id="btn" style="color:#23426B" class="btn delete"><i class="fa fa-trash"></i></button>
+            <button type="button" clik=remove(element.id) id="btn" style="color:#23426B" class="btn delete"><i class="fa fa-trash"></i></button>
             
         </td> `
    
     table_body.appendChild(new_row)
+        });
+    })
+}
+
+let addVisitor = (name, documento, type, placa, description) => {
+    fetch("")
+    .then()
+    .then((data)=>{
+        
+        fetchData()
+    })
+    
     
     btn_drop.addEventListener("click", (event) => {
     row = element.parentElement.parentElement;
